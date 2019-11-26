@@ -29,12 +29,12 @@ export const login = (username, password) => {
     }
   }
 
-export const register = (username, password) => {
+export const register = (username, password1,password2,email) => {
   return (dispatch, getState) => {
     let headers = {"Content-Type": "application/json"};
-    let body = JSON.stringify({username, password});
+    let body = JSON.stringify({username,password1,password2,email});
 
-    return fetch("/api/account/register/", {headers, body, method: "POST"})
+    return fetch("/rest-auth/registration/", {headers, body, method: "POST"})
       .then(res => {
         if (res.status < 500) {
           return res.json().then(data => {

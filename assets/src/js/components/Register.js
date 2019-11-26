@@ -45,11 +45,14 @@ function Register (props) {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
   const [username, setUsername] = useState( '' );
-  const [password, setPassword] = useState( '' );
+  const [password1, setPassword1] = useState( '' );
+  const [password2, setPassword2] = useState( '' );
+  const [email, setEmail] = useState( '' );
+
 
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(auth.register(username,password));
+    dispatch(auth.register(username,password1,password2,email));
   }
 
     if (state.isAuthenticated) {
@@ -72,6 +75,18 @@ function Register (props) {
               variant="outlined"
               required
               fullWidth
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
+              onChange={e => setEmail(e.target.value)}
+            />
+          </Grid>          
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              required
+              fullWidth
               id="username"
               label="Username"
               name="username"
@@ -84,12 +99,25 @@ function Register (props) {
               variant="outlined"
               required
               fullWidth
-              name="password"
+              name="password1"
               label="Password"
               type="password"
-              id="password"
+              id="password1"
               autoComplete="current-password"
-              onChange={e => setPassword(e.target.value)}
+              onChange={e => setPassword1(e.target.value)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              required
+              fullWidth
+              name="password2"
+              label="Repeat Password"
+              type="password"
+              id="password2"
+              autoComplete="current-password"
+              onChange={e => setPassword2(e.target.value)}
             />
           </Grid>
         </Grid>

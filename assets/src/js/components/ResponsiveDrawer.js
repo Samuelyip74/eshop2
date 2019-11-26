@@ -131,7 +131,7 @@ function ResponsiveDrawer(props) {
             aria-haspopup="true"
             color="inherit"
             onClick={() => dispatch(auth.logout())}
-          ><Link to="/app/"  style={{ textDecoration: 'none', color: 'lightgray' }}>
+          ><Link to="/login"  style={{ textDecoration: 'none', color: 'lightgray' }}>
             <AccountCircle  />
             </Link>
         </IconButton>
