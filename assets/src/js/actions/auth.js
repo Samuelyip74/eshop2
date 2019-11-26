@@ -3,7 +3,7 @@ export const login = (username, password) => {
       let headers = {"Content-Type": "application/json"};
       let body = JSON.stringify({username, password});
   
-      return fetch("/api/account/login/", {headers, body, method: "POST"})
+      return fetch("/rest-auth/login/", {headers, body, method: "POST"})
         .then(res => {
           if (res.status < 500) {
             return res.json().then(data => {
@@ -70,7 +70,7 @@ export const logout = () => {
     if (token) {
       headers["Authorization"] = `Token ${token}`;
     }  
-    return fetch("/api/account/logout/", {headers, body: "", method: "POST"})
+    return fetch("/rest-auth/logout/", {headers, body: "", method: "POST"})
       .then(res => {
         if (res.status === 200) {
           dispatch({type: 'LOGOUT_SUCCESSFUL'});

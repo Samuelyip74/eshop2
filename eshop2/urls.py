@@ -16,7 +16,8 @@ urlpatterns = [
 
     #Apps URLs
     url(r'^api/v1.0/product/', include('product.api.urls'), name='product_api'),
-
     url(r'^app/', TemplateView.as_view(template_name="frontend/index.html")),
-
+    url(r'^login', TemplateView.as_view(template_name="frontend/index.html")),
+    url(r'^register', TemplateView.as_view(template_name="frontend/index.html")),
+    url(r'^$', TemplateView.as_view(template_name="frontend/index.html")),
 ]

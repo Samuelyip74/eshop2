@@ -8,6 +8,7 @@ import Promotion from './Promotion';
 import CategoryListing from './CategoryListing';
 import ProductCard from './ProductCard';
 
+
 const Main = () => (
   <main>
     <Switch>

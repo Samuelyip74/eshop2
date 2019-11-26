@@ -104,7 +104,7 @@ function Register (props) {
         </Button>
         <Grid container justify="flex-end">
           <Grid item>
-            <Link href="/app/login" variant="body2">
+            <Link href="/login" variant="body2">
               Already have an account? Login here.
             </Link>
           </Grid>
