@@ -32,7 +32,7 @@ export default function Dashboard(props) {
   const [loading, setloading] = useState(true);
   
   useEffect(() => { 
-    axios.get(`http://127.0.0.1:8000/api/product/category/`)
+    axios.get(`http://127.0.0.1:8000/api/v1.0/product/category/`)
         .then(res => {           
         setdata(res.data);
         setloading(false);
@@ -64,7 +64,7 @@ export default function Dashboard(props) {
                     <CardActionArea>
                         <CardMedia
                         className={classes.media}
-                        image={item.image}
+                        //image={item.image}
                         title={item.name}
                         />
                         <CardContent style={{display:'flex',}}>

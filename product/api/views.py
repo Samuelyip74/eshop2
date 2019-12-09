@@ -4,8 +4,25 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics
 from rest_framework import pagination
-from product.models import Product
-from .serializers import ProductSerializer
+from product.models import Product,Category
+from .serializers import ProductSerializer, CategorySerializer
+
+class CategoryAPIList(generics.ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer 
+
+    def list(self, request):
+        # Note the use of `get_queryset()` instead of `self.queryset`
+        queryset = self.get_queryset()
+
+        #serializer = self.get_serializer(queryset, many=True)
+        serializer = CategorySerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def get_queryset(self):
+        query = Category.objects.all()
+        return query
+
 
 class StandardResultsSetPagination(pagination.PageNumberPagination):
     page_size = 100
